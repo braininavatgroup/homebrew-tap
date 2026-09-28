@@ -1,0 +1,25 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tap this checkout
+        run: brew tap braininavatgroup/tap "$GITHUB_WORKSPACE"
+      - name: Audit and style casks
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
+        run: |
+          brew audit --cask --strict --online braininavatgroup/tap/writ
+          brew style --cask braininavatgroup/tap/writ
+      - name: Verify release download checksum
+        run: brew fetch --cask --force braininavatgroup/tap/writ
