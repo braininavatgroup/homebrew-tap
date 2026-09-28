@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  cask:
+  ci:
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
