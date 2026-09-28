@@ -16,8 +16,10 @@ jobs:
       - name: Tap this checkout
         run: brew tap braininavatgroup/tap "$GITHUB_WORKSPACE"
       - name: Audit and style casks
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
         run: |
-          brew audit --cask --strict braininavatgroup/tap/writ
+          brew audit --cask --strict --online braininavatgroup/tap/writ
           brew style --cask braininavatgroup/tap/writ
       - name: Verify release download checksum
         run: brew fetch --cask --force braininavatgroup/tap/writ
