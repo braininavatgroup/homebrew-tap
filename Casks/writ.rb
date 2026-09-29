@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 cask "writ" do
-  version "1.1"
-  sha256 "f7e788720e44f6c3bdebe5cfaf1de2a6b84bb808e8ae14635a5c462269c2c1db"
+  version "1.2"
+  sha256 "437359158c85baa651fe87bdbca88c5c03c774f37cbe84a23eb21854f5c0e51f"
 
   url "https://github.com/braininavatgroup/writ/releases/download/v#{version}/Writ-#{version}.dmg"
   name "Writ"
