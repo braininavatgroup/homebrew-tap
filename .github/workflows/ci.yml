@@ -13,6 +13,10 @@ jobs:
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
+      - name: Public-tree denylist
+        uses: braininavatgroup/agent-operating-policy/.github/actions/public-tree-check@ae63f1fd82c5a198cbbb51aee51491407505fd2a
+        with:
+          denylist: ${{ vars.PUBLIC_TREE_DENYLIST }}
       - name: Tap this checkout
         run: brew tap braininavatgroup/tap "$GITHUB_WORKSPACE"
       - name: Audit and style casks
