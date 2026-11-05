@@ -16,7 +16,9 @@ jobs:
         with:
           denylist: ${{ vars.PUBLIC_TREE_DENYLIST }}
       - name: Tap this checkout
-        run: brew tap braininavatgroup/tap "$GITHUB_WORKSPACE"
+        run: |
+          brew tap braininavatgroup/tap "$GITHUB_WORKSPACE"
+          brew trust --cask braininavatgroup/tap/writ
       - name: Audit and style casks
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
