@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Public-tree denylist
-        uses: braininavatgroup/agent-operating-policy/.github/actions/public-tree-check@b8c552c8c595504eb3090042422b0e617c4c726b
+        uses: braininavatgroup/homebrew-tap/.github/actions/public-tree-check@6e1d01dfcb5f915e40b452422dd282f4e267939f
         with:
           denylist: ${{ vars.PUBLIC_TREE_DENYLIST }}
       - name: Tap this checkout
